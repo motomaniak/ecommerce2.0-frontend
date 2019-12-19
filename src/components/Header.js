@@ -6,10 +6,9 @@ export default function Header() {
            <header>
                <h1>Ecommerce</h1>
                <nav>
-                   <a href="#">User</a>
-                   <a href="#">Products</a>
-                   <a href="#">Edit</a>
-                   <a href="#">Add Product</a>
+                   <a href="/register">User</a>
+                   <a href="/products">Products</a>
+                   <a href="/addproduct">Add Product</a>
                </nav>
            </header> 
         </div>

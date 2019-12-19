@@ -55,8 +55,9 @@ export default class UserForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className='container'>
                 <form onSubmit={this.handleSubmit} >
+                    <fieldset>
                     <input type='text' id='fName' placeholder='First Name' required /><br/>
                     <input type='text' id='lName' placeholder='Last Name' required /><br/>
                     <input type='email' id='email' placeholder='Enter a Valid E-mail' required /><br/>
@@ -66,6 +67,7 @@ export default class UserForm extends Component {
                     <input type='text' id='zip' placeholder='Zip' required /><br/>
                     <input type='text' id='phone' placeholder='Phone Number' required /><br/>
                     <input type='submit' value='Submit'></input>
+                    </fieldset>
                 </form>
             </div>
         )
