@@ -23,14 +23,21 @@ export default class UserForm extends Component {
         }
         
         fetch(url, options)
-            .then(res=> console.log(res))
+            .then(res=> {
+                if(res.status == '200'){
+                    alert(`${this.state.first_name}, added successfully`)
+                    document.getElementById('user-form').reset()
+                }
+                else{
+                    alert('not added')
+                }
+            })
             .catch(err => console.log(err))
 
     }
 
     handleChange = (e) => {
         this.setState({[e.target.id]: e.target.value})
-        console.log(this.state)
     }
 
     handleSubmit = (e) => {
@@ -41,7 +48,7 @@ export default class UserForm extends Component {
     render() {
         return (
             <div className='container'>
-                <form onSubmit={this.handleSubmit} >
+                <form id='user-form' onSubmit={this.handleSubmit} >
                     <fieldset>
                     <input type='text' onChange={this.handleChange} id='first_name' placeholder='First Name' required /><br/>
                     <input type='text' onChange={this.handleChange} id='last_name' placeholder='Last Name' required /><br/>

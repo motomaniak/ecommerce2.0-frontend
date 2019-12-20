@@ -17,7 +17,7 @@ class Product extends Component {
     render() {
         return (
             <div className='product'>
-                <img src={this.state.product.length === 0 ? '' : this.state.product.image} alt={this.state.product.length == 0 ? '' : this.state.product.name} />
+                <img src={this.state.product.length === 0 ? '' : this.state.product.image} alt={this.state.product.length === 0 ? '' : this.state.product.name} />
                 <p>{this.state.product.length === 0 ? '' : this.state.product.name}</p><br/>
                 <p>{this.state.product.length === 0 ? '' : this.state.product.description}</p><br/>
                 <h4>${this.state.product.length === 0 ? '' : this.state.product.price}</h4>
