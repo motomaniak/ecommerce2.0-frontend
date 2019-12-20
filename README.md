@@ -1,3 +1,5 @@
+![alt text](https://github.com/motomaniak/ecommerce2.0-frontend/blob/master/wireFrame/ProductList.png "Logo Title Text 1")
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
