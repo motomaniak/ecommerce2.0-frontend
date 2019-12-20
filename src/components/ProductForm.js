@@ -14,6 +14,7 @@ export default class ProductForm extends Component {
     }
 
     componentDidMount = () => {
+        console.log('I mounted')
         if(this.props.location.state !== undefined) {
             document.getElementById('name').value = this.props.location.state.product_name
             document.getElementById('description').value = this.props.location.state.description

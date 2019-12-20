@@ -8,7 +8,7 @@ class Product extends Component {
     componentDidMount = () => {
         let {id} = this.props.match.params
         let url = `http://localhost:9000/api/store/product/${id}`
-        console.log(url)
+        
         fetch(url)
             .then(res=>res.json())
             .then(res=> this.setState({product: res}))
@@ -21,7 +21,7 @@ class Product extends Component {
                 <p>{this.state.product.length === 0 ? '' : this.state.product.name}</p><br/>
                 <p>{this.state.product.length === 0 ? '' : this.state.product.description}</p><br/>
                 <h4>${this.state.product.length === 0 ? '' : this.state.product.price}</h4>
-                <button value='Edit' onClick={()=>this.props.history.push('/product/add_edit', {...this.state.product})} >Edit</button>
+                <button value='Edit' onClick={()=>this.props.history.push(`/product/${this.state.product.product_id}/edit`, {...this.state.product})} >Edit</button>
             </div>
         )
     }
