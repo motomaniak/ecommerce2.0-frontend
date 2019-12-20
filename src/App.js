@@ -13,9 +13,10 @@ function App() {
       <Header />
       <Switch>
         <Route exact path='/register' component={UserForm} />
-        <Route exact path='/addproduct' component={ProductForm} />
+        <Route exact path='/product/add_edit' component={ProductForm} />
         <Route exact path='/products' component={ProductsContainer} />
-        <Route path='/:id' component={Product} />
+        <Route exact path='/' component={ProductsContainer} />
+        <Route exact path='/product/:id' component={Product} />
       </Switch>
     </div>
   );

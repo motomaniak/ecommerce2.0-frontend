@@ -15,7 +15,9 @@ class ProductsContainer extends Component {
 
     render() {
         return (
-            <Products data={this.state.produtcs.length === 0 ? [] : this.state.produtcs} />
+            <div className='cards'>
+                <Products data={this.state.produtcs.length === 0 ? [] : this.state.produtcs} />
+            </div>
         )
     }
 } 

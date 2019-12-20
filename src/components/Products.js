@@ -4,24 +4,18 @@ import {Link} from 'react-router-dom'
 function Products(props) {
     let products = props.data.map(product => {
         return (
-            <>
-                <Link to={`/${product.product_id}`}>
-                    <div className='products_container' key={product.product_id}>
-                    <img float='left' height='100' width='100' className='thumbnail' id={product.product_id}
-                        src={product.image} 
-                        alt={product.name} />
-                    {product.name} 
-                    {product.price}
-                    </div>
-                </Link>
-            </>
+            <Link class='card' to={`product/${product.product_id}`}>
+                <img id={product.product_id}
+                    src={product.image} 
+                    alt={product.name} />
+                <p>{product.name}</p><br/>
+                <h4>${product.price}</h4>
+            </Link>
         )
     })
 
     return (
-        <div>
-            {products}
-        </div>
+        <>{products}</>
     )
 }
 

@@ -16,12 +16,12 @@ class Product extends Component {
     
     render() {
         return (
-            <div className='container'>
-                <img src={this.state.product.length == 0 ? '' : this.state.product.image} alt={this.state.product.length == 0 ? '' : this.state.product.name} />
-                {this.state.product.length == 0 ? '' : this.state.product.name}
-                {this.state.product.length == 0 ? '' : this.state.product.description}
-                {this.state.product.length == 0 ? '' : this.state.product.price}
-                <button value='Edit' onClick={()=>this.props.history.push('/addproduct', {...this.state.product})} >Edit</button>
+            <div className='product'>
+                <img src={this.state.product.length === 0 ? '' : this.state.product.image} alt={this.state.product.length == 0 ? '' : this.state.product.name} />
+                <p>{this.state.product.length === 0 ? '' : this.state.product.name}</p><br/>
+                <p>{this.state.product.length === 0 ? '' : this.state.product.description}</p><br/>
+                <h4>${this.state.product.length === 0 ? '' : this.state.product.price}</h4>
+                <button value='Edit' onClick={()=>this.props.history.push('/product/add_edit', {...this.state.product})} >Edit</button>
             </div>
         )
     }

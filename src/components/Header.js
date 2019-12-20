@@ -4,11 +4,11 @@ export default function Header() {
     return (
         <div>
            <header>
-               <h1>Ecommerce</h1>
+               <h1>E-commerce</h1>
                <nav>
                    <a href="/register">User</a>
                    <a href="/products">Products</a>
-                   <a href="/addproduct">Add Product</a>
+                   <a href="/product/add_edit">Add Product</a>
                </nav>
            </header> 
         </div>
