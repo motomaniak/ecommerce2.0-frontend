@@ -1,4 +1,10 @@
-![alt text](https://github.com/motomaniak/ecommerce2.0-frontend/blob/master/wireFrame/ProductList.png "Logo Title Text 1")
+![alt text](https://github.com/motomaniak/ecommerce2.0-frontend/blob/master/wireFrame/ProductList.png "Products List Page")
+
+![alt text](https://github.com/motomaniak/ecommerce2.0-frontend/blob/master/wireFrame/ProductDetail.png "Products Detail Page")
+
+![alt text](https://github.com/motomaniak/ecommerce2.0-frontend/blob/master/wireFrame/AddProduct.png "Products Add/Edit Page")
+
+![alt text](https://github.com/motomaniak/ecommerce2.0-frontend/blob/master/wireFrame/User.png "Add User Page")
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
