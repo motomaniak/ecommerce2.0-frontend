@@ -125,6 +125,12 @@ fieldset::after {
   top: 200px;
 }
 
+.product > select {
+  width: 77px;
+  height: 23px;
+  margin: 10px;
+}
+
 .cards {
   position: absolute;
   top: 200px;

@@ -9,6 +9,7 @@ export default function Header() {
                    <Link to="/register">User</Link>
                    <Link to="/products">Products</Link>
                    <Link to="/product/add">Add Product</Link>
+                   <Link to="/login">Login</Link>
                </nav>
            </header> 
         </div>

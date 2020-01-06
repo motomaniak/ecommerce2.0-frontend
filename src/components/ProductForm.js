@@ -29,7 +29,7 @@ export default class ProductForm extends Component {
                 name: this.props.location.state.product_name,
                 description: this.props.location.state.description,
                 image: this.props.location.state.image,
-                quantity: this.props.location.state.quantity,
+                quantity: this.props.location.state.quantity.map,
                 price: this.props.location.state.price,
                 category: this.props.location.state.category_id
             })
