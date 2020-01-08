@@ -1,30 +1,32 @@
-import React from 'react';
-import {Switch, Route, Redirect, Router} from 'react-router-dom'
-import ProductsContainer from './components/ProductsContainer';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
 import Header from './components/Header'
-import UserForm from './components/UserForm'
-import ProductForm from './components/ProductForm'
-import Product from './components/Product'
-import Login from './components/Login'
+import Routes from './config/routes';
 
+class App extends Component {
+  state = {
+    currentUser: localStorage.getItem('id')
+  }
 
-function App() {
-  return (
-    <div>
-      <Header />
-      <Switch>
-        <Route exact path='/register' component={UserForm} />
-        <Route exact path='/product/add' render={() => <div><ProductForm /></div>} />
-        <Route exact path='/product/:id/edit' component={ProductForm} />
-        <Route exact path='/products' component={ProductsContainer} />
-        <Route exact path='/' >
-          <Redirect to='/products' />
-        </Route>
-        <Route exact path='/product/:id' component={Product} />
-        <Route exact path='/login' component={Login} />
-      </Switch>
-    </div>
-  );
+  setCurrentUser = (token) => {
+    this.setState({currentUser:token})
+    localStorage.setItem('id', token)
+  }
+
+  logout = () => {
+    localStorage.removeItem('uid')
+    this.setState({currentUser: null})
+    this.props.history.push('/login')
+  };
+
+  render() {
+    return (
+      <div>
+        <Header currentUser={this.state.currentUser} logout={this.logout} />
+        <Routes currentUser={this.state.currentUser} setCurrentUser={this.setCurrentUser} />
+      </div>
+    );
+  }
 }
 
-export default App;
+export default withRouter(App);

@@ -2,19 +2,17 @@ import React, { Component } from 'react'
 
 export default class Login extends Component {
     state = {
-        email: null,
-        password: null
+        email: '',
+        password: '',
+        error: null
     }
 
     handleChange = (e) => {
-        let target = e.target 
-        let value = target.value
-        let name = target.id
-        this.setState({[name]:value})
+        this.setState({[e.target.name]: e.target.value})
     }
 
     submit = () => {
-        const url = `api/ecommerce/auth/login` 
+        const url = `http://localhost:9000/api/ecommerce/auth/login` 
         const options = {
             method: "POST",
             body: JSON.stringify(this.state),
@@ -22,6 +20,17 @@ export default class Login extends Component {
                 'Content-Type':'application/json'
             }
         }
+
+        fetch(url, options)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                this.props.setCurrentUser(data.signedJwt)
+                this.props.history.push('/profile')
+            })
+            .catch(err => {
+                this.setState({error: err.response.data.message})
+            })
     }
 
     handleSubmit = (e) => {

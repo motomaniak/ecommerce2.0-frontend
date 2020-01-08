@@ -12,19 +12,63 @@ export default class UserForm extends Component {
         phone: ''
     }
 
+    componentDidMount() {
+        fetch(`http://localhost:9000/api/store/customer`, {
+            headers: {
+                'authorization':`Bearer ${localStorage.id}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.first_name != null){
+                this.setState({first_name: data.first_name})
+                document.getElementById('first_name').value = data.first_name
+            }
+            if(data.last_name != null){
+                this.setState({last_name: data.last_name})
+                document.getElementById('last_name').value = data.last_name
+            }
+            if(data.email != null){
+                this.setState({email: data.email})
+                document.getElementById('email').value = data.email
+            }
+            if(data.address != null){
+                this.setState({address: data.address})
+                document.getElementById('address').value = data.address
+            }
+            if(data.city != null){
+                this.setState({city: data.city})
+                document.getElementById('city').value = data.city
+            }
+            if(data.state != null){
+                this.setState({state: data.state})
+                document.getElementById('state').value = data.state
+            }
+            if(data.zip != null){
+                this.setState({zip: data.zip})
+                document.getElementById('zip').value = data.zip
+            }
+            if(data.phone != null){
+                this.setState({phone: data.phone})
+                document.getElementById('phone').value = data.phone
+            }
+        })
+
+    }
+
     submit = () => {
         let url = `http://localhost:9000/api/store/customer`
         const options = {
-            method: 'POST',
+            method: 'PUT',
             body: JSON.stringify(this.state),
             headers: {
-                'Content-Type':'application/json' 
+                'authorization':`Bearer ${localStorage.id}`
             }
         }
-        
+        console.log(options)
         fetch(url, options)
             .then(res=> {
-                if(res.status == '200'){
+                if(res.status === '200'){
                     alert(`${this.state.first_name}, added successfully`)
                     document.getElementById('user-form').reset()
                 }
