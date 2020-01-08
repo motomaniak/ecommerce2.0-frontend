@@ -56,21 +56,36 @@ export default class UserForm extends Component {
 
     }
 
+    delete = () => {
+        let url = `http://localhost:9000/api/store/customer`
+        const options = {
+            method: 'DELETE',
+            headers: {
+                authorization: `Bearer ${localStorage.id}`
+            }
+        }
+
+        fetch(url, options)
+            .then(res => res.json())
+    }
+
     submit = () => {
         let url = `http://localhost:9000/api/store/customer`
         const options = {
             method: 'PUT',
             body: JSON.stringify(this.state),
             headers: {
+                'Content-Type': 'application/json',
                 'authorization':`Bearer ${localStorage.id}`
             }
         }
         console.log(options)
         fetch(url, options)
             .then(res=> {
-                if(res.status === '200'){
+                console.log(typeof res.status)
+                if(res.status === 200){
                     alert(`${this.state.first_name}, added successfully`)
-                    document.getElementById('user-form').reset()
+                    // document.getElementById('user-form').reset()
                 }
                 else{
                     alert('not added')
@@ -103,6 +118,7 @@ export default class UserForm extends Component {
                     <input type='text' onChange={this.handleChange} id='zip' placeholder='Zip' required /><br/>
                     <input type='text' onChange={this.handleChange} id='phone' placeholder='Phone Number' required /><br/>
                     <input type='submit' value='Submit'></input>
+                    {/* <input type='button' onClick={this.delete()} value='Delete'></input> */}
                     </fieldset>
                 </form>
             </div>

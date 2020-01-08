@@ -24,12 +24,12 @@ export default class Login extends Component {
         fetch(url, options)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 this.props.setCurrentUser(data.signedJwt)
                 this.props.history.push('/profile')
             })
             .catch(err => {
                 this.setState({error: err.response.data.message})
+                console.log(this.state)
             })
     }
 
